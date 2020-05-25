@@ -46,7 +46,9 @@ module.exports = {
             if (userExist) {
                 return res.status(422).json({
                     msg: 'User is already existing',
-                    userExist
+                    userExist,
+                    success: false
+
                 })
             } else{
                 User.create({
@@ -57,7 +59,9 @@ module.exports = {
                 }).then(response =>{
                     return res.status(201).json({
                         msg: "User has been register",
-                        username
+                        username,
+                        success: true
+
                     });
                 });
             }
